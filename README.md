@@ -125,6 +125,7 @@ a nstępnie:
 
 Następnie należy zaimplementować w naszej aplikacji sklepu internetowego koszyk, który przechowuje wybrane przez klienta artykuły i który potrafi odpowiedzieć na pytanie – jaka jest łączna wartość zamówienia. Aby policzyć wartość zamówienia trzeba zsumować ceny poszczególnych produktów, niezależnie od tego, jakiego typu są te produkty. Wygodnie jest móc traktować wszystkie obiekty reprezentujące produkty takie jak książki, płyty muzyczne, gry i wszelakie inne w ten sam sposób. Możemy wówczas przejrzeć kolekcję produktów z koszyka i dla każdego z nich wywołać metodę `getPrice()`. Suma wyników będzie wartością zamówienia.
 
+
 Łącząc ze sobą mechanizm polimorfizmu i przesłaniania metod możemy osiągnąć jeszcze ciekawsze rezultaty. Przykładowo, możemy zdefiniować produkt `BonusPackage`, tj. produkt, który jest zbiorem dowolnych innych produktów oferowanych w pakiecie po promocyjnej cenie. Moglibyśmy wówczas w klasie `BonusPackage` przesłonić implementację metody `getPrice()` tak, aby metoda ta sumowała ceny wszystkich produktów z pakietu i na końcu odejmowała od tej sumy np. 10%.
 
 Zauważmy, że wprowadzenie produktu `BonusPackage` nie pociąga za sobą w skutkach konieczności zmiany klasy opisującej koszyk i funkcjonalności liczenia wartości zamówienia. Tak jak do tej pory sumujemy wyniki wywołania metody `getPrice()` dla każdego obiektu. Z punktu widzenia tego algorytmu jest nie istotne, że niektóre z tych obiektów, te które są typu `BonusPackage` mają zmienioną implementację metody `getPrice()`.
@@ -145,17 +146,33 @@ dziedziczące po klasie Osoba:
   - rok studiów
   
 * metody 
-  - zwracającą informację o studencie (należy przesłonić metodę odziedziczoną po klasie osoba). Można w tym celu wykorzystać metodę `toString()`.
+  - zwracającą informację o studencie (należy przesłonić metodę odziedziczoną po klasie osoba).
+  Można w tym celu wykorzystać metodę `toString()`.
   
-2. Wykładowca – klasę tę należy zaprojektować samodzielnie (poprzez analogię do klasy `Student`) wykazując się pomysłowością i inwencją twórczą. 
+2. Wykładowca – klasę tę należy zaprojektować samodzielnie (poprzez analogię do klasy `Student`)
+ wykazując się pomysłowością i inwencją twórczą.
 
 ## Zadanie 2
 
-Stwórz klasę `Punkt2D`, która przechowuje informacje opisujące punkt na płaszczyźnie dwuwymiarowej (współrzędne x oraz y). Zawiera ona dwa konstruktory: bezparametrowy ustawiający pola na wartość 0, oraz przyjmujący dwa argumenty i ustawiający pola obiektu zgodnie z podanymi parametrami. Utwórz metodę losującą współrzędne punktu na płaszczyźnie. Współrzędne mają być losowane w zakresie od -10 do 10. Przesłoń metodę `toString()` tak aby wyświetlała informacje o współrzędnych punktu w płaszczyźnie.
+Stwórz klasę `Punkt2D`, która przechowuje informacje opisujące punkt na płaszczyźnie
+dwuwymiarowej (współrzędne x oraz y). Zawiera ona dwa konstruktory: bezparametrowy
+ustawiający pola na wartość 0, oraz przyjmujący dwa argumenty i ustawiający pola obiektu
+zgodnie z podanymi parametrami. Utwórz metodę losującą współrzędne punktu na płaszczyźnie.
+Współrzędne mają być losowane w zakresie od -10 do 10. Przesłoń metodę `toString()` tak aby
+wyświetlała informacje o współrzędnych punktu w płaszczyźnie.
 
-Napisz klasę `Punkt3D` reprezentującą punkt w trójwymiarze. Klasa ma powstać na bazie klasy `Punkt2D` z dodatkowym polem z opisującym trzeci wymiar. Przesłoń metodę losującą współrzędne punku tak aby losowała również trzeci wymiar (z). Przesłoń metodę `toString()` tak aby wyświetlała informacje o współrzędnych punktu w przestrzeni.
+Napisz klasę `Punkt3D` reprezentującą punkt w trójwymiarze. Klasa ma powstać na bazie
+klasy `Punkt2D` z dodatkowym polem z opisującym trzeci wymiar.
+Przesłoń metodę losującą współrzędne punku tak aby losowała również trzeci wymiar (z).
+Przesłoń metodę `toString()` tak aby wyświetlała informacje o współrzędnych punktu w przestrzeni.
 
-W klasie testowej utwórz obiekty obu klas i przetestuj działanie. Następnie utwórz dwie tablice 100-elementowe, jedna dla klasy `Punkt2D` o nazwie `array2D`, a druga dla klasy `Punkt3D` o nazwie array3. W obydwu tablicach wylosuj dla wszystkich elementów punkty przy użyciu utworzonych wcześniej metod. Sprawdź czy w tablicy array3D i array2D istnieją elementy mające wspólne składowe (x,y) tj. istnieją punkty punkt2D(x1,y1) i punkt3D(x2,y2,z2), takie że x1=x2 i y1=y2. Jeśli takie pary istnieją wypisz je na ekranie (wykorzystaj metodę `toString()`. 
+W klasie testowej utwórz obiekty obu klas i przetestuj działanie.
+Następnie utwórz dwie tablice 100-elementowe, jedna dla klasy `Punkt2D` o nazwie `array2D`,
+a druga dla klasy `Punkt3D` o nazwie array3. W obydwu tablicach wylosuj dla wszystkich elementów
+ punkty przy użyciu utworzonych wcześniej metod. Sprawdź czy w tablicy array3D i array2D
+ istnieją elementy mające wspólne składowe (x,y) tj. istnieją punkty punkt2D(x1,y1)
+ i punkt3D(x2,y2,z2), takie że x1=x2 i y1=y2. Jeśli takie pary istnieją wypisz je na
+  ekranie (wykorzystaj metodę `toString()`.
 
 ###### Opracował dr inż. Wojciech Kozioł
 
